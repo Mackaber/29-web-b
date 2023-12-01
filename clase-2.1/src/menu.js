@@ -14,7 +14,14 @@ function Menu() {
 
   return `
     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-      ${html}
+      ${NAVIGATION_LINKS.map(({link, name}) => {
+        return `
+          <li class="nav-item">
+            <a class="nav-link" href="${link}">${name}</a>
+          </li>
+        `
+      }).join("\n")
+    }
     </ul>
   `
 }
