@@ -1,4 +1,4 @@
-function MovieCard(img_src, title, description) {
+function MovieCard({img_src, title, description}) {
   return `
     <div class="card" style="width: 18rem;">
     <img src="${img_src}" class="card-img-top">
