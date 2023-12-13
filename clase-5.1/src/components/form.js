@@ -1,10 +1,13 @@
 import axios from 'axios';
+import { get_all_products } from '../services/products';
+import Product from './product';
 
 function Form() {
 
   document.addEventListener('DOMContentLoaded', (event) => {
     const product_form = document.getElementById("product_form");
 
+    // Cuando se agrega un producto
     product_form.addEventListener("submit", (event) => {
       event.preventDefault()
       console.log(event.target.name.value)
@@ -27,12 +30,14 @@ function Form() {
       };
 
       axios.request(config)
-      .then((response) => {
-        console.log(JSON.stringify(response.data));
+      .then(async (response) => {
+        const products = await get_all_products()
+        document.querySelector('#product_list').innerHTML = products.map((product_obj) => Product(product_obj)).join("")
       })
       .catch((error) => {
         console.log(error);
       });  
+      
     })
   })
 
