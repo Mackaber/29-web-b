@@ -18,8 +18,9 @@ function Form() {
 
       let config = {
         method: 'post',
-        url: 'https://crudcrud.com/api/a5b586295151488ab0d8328dc5729388/products',
+        url: 'https://devf29webb-fc70.restdb.io/rest/products',
         headers: { 
+          'x-apikey': '65790996993e5fb439d25219', 
           'Content-Type': 'application/json'
         },
         data : data
